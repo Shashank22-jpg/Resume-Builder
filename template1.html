@@ -1,0 +1,10 @@
+<form action="/download" method="POST">
+    <input type="hidden" name="name" value="{{ data.name }}">
+    <input type="hidden" name="email" value="{{ data.email }}">
+    <input type="hidden" name="phone" value="{{ data.phone }}">
+    <input type="hidden" name="skills" value="{{ data.skills }}">
+    <input type="hidden" name="education" value="{{ data.education }}">
+    <input type="hidden" name="experience" value="{{ data.experience }}">
+
+    <button type="submit">Download PDF</button>
+</form>
