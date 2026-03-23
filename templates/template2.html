@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Premium Resume</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #eef2f7;
+}
+
+.resume {
+    width: 70%;
+    margin: 40px auto;
+    background: white;
+    display: flex;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* LEFT SIDEBAR */
+.sidebar {
+    width: 30%;
+    background: linear-gradient(180deg, #667eea, #764ba2);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.sidebar img {
+    width: 120px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.sidebar h2 {
+    margin: 10px 0;
+}
+
+.sidebar p {
+    font-size: 14px;
+}
+
+/* RIGHT CONTENT */
+.content {
+    width: 70%;
+    padding: 25px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.section h3 {
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #667eea;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="resume">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        {% if data.photo %}
+        <img src="{{ data.photo }}">
+        {% endif %}
+        <h2>{{ data.name }}</h2>
+        <p>{{ data.email }}</p>
+        <p>{{ data.phone }}</p>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+        <div class="section">
+            <h3>💡 Skills</h3>
+            <p>{{ data.skills }}</p>
+        </div>
+
+        <div class="section">
+            <h3>🎓 Education</h3>
+            <p>{{ data.education }}</p>
+        </div>
+
+        <div class="section">
+            <h3>💼 Experience</h3>
+            <p>{{ data.experience }}</p>
+        </div>
+
+        <form action="/download" method="POST">
+            <input type="hidden" name="name" value="{{ data.name }}">
+            <input type="hidden" name="email" value="{{ data.email }}">
+            <input type="hidden" name="phone" value="{{ data.phone }}">
+            <input type="hidden" name="skills" value="{{ data.skills }}">
+            <input type="hidden" name="education" value="{{ data.education }}">
+            <input type="hidden" name="experience" value="{{ data.experience }}">
+
+            <button>⬇ Download PDF</button>
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

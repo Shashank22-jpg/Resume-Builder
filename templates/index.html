@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Resume Builder Pro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #667eea, #764ba2, #6a11cb, #2575fc);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Animated Background */
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Glass Card */
+.card {
+    width: 60%;
+    backdrop-filter: blur(20px);
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* Title */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Inputs */
+.input-group {
+    position: relative;
+    margin: 15px 0;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    outline: none;
+}
+
+/* Floating Labels */
+.input-group label {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    color: #ddd;
+    transition: 0.3s;
+}
+
+.input-group input:focus + label,
+.input-group textarea:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    font-size: 12px;
+    color: #fff;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #ff7b00, #ff3d00);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255,255,255,0.6);
+}
+
+/* Layout */
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+.row .input-group {
+    flex: 1;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🚀 Resume Builder Pro</h1>
+
+<form action="/preview" method="POST" enctype="multipart/form-data">
+
+<div class="row">
+    <div class="input-group">
+        <input type="text" name="name" required placeholder=" ">
+        <label>Full Name</label>
+    </div>
+
+    <div class="input-group">
+        <input type="email" name="email" placeholder=" ">
+        <label>Email</label>
+    </div>
+</div>
+
+<div class="input-group">
+    <input type="text" name="phone" placeholder=" ">
+    <label>Phone</label>
+</div>
+
+<div class="input-group">
+    <textarea name="skills" placeholder=" "></textarea>
+    <label>Skills</label>
+</div>
+
+<div class="input-group">
+    <textarea name="education" placeholder=" "></textarea>
+    <label>Education</label>
+</div>
+
+<div class="input-group">
+    <textarea name="experience" placeholder=" "></textarea>
+    <label>Experience</label>
+</div>
+
+<div class="input-group">
+    <input type="file" name="photo">
+</div>
+
+<div class="input-group">
+    <select name="template">
+        <option value="template1">Modern</option>
+        <option value="template2">Premium</option>
+    </select>
+</div>
+
+<button>✨ Generate Resume</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
